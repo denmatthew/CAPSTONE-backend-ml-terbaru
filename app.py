@@ -65,6 +65,12 @@ def predict():
         return jsonify({'predicted_class': label, 'confidence': f"{confidence * 100:.2f}%"})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
+    
+    
+@app.route('/ping', methods=['GET'])
+def ping():
+    return "pong", 200
+
 
 if __name__ == '__main__':
     port = int(os.environ.get("PORT", 5000))
